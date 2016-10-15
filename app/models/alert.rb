@@ -27,7 +27,7 @@ class Alert < ApplicationRecord
   
   # trigger the alert: change the status and send an email to the user
   def trigger
-    # TODO Send email
+    AlertMailer.alert_triggered_email(self).deliver_now
     self.status = STATUS_TRIGGERED
     self.save
   end

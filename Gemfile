@@ -60,4 +60,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'httparty'
 #cron job management
 gem 'whenever', :require => false
-
+# load variables from .env into ENV
+gem 'dotenv-rails'

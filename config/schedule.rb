@@ -29,4 +29,5 @@ job_type :rake,    "cd :path && rvm use 2.3.0@stocks && :environment_variable=:e
 # crontab : min hour day/month month day/week
 every '5 8-6 * * 1-5' do
   rake "alerts:check"
+  # Todo log something here ?
 end
