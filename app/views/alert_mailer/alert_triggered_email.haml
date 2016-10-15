@@ -1,5 +1,5 @@
 %p
-  = "Your alert on #{@alert.stock.name} was triggered today at #{@alert.updated_at.strftime('%Hh%M')}."
+  = "Your alert on #{@alert.stock.name} was triggered today at #{@alert.updated_at.strftime('%Hh%M') (#{Time.zone.to_s} time)}."
   -dropped_or_reach = @alert.alert_type == Alert::TYPE_LOWER_THAN ? "dropped below" : "reached"
   = "#{@alert.stock.name} value #{dropped_or_reach} #{@alert.target_value}."
   Thank you for using the Stocks application !
