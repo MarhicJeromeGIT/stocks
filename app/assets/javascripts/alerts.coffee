@@ -17,11 +17,17 @@ $ ->
         console.log("success" + data)
   ###
   
-  
+  # Hide the error message on click
+  $('#submit_alert').on "click", ->
+    $('#new_alert_error_field').hide()
+    $('#target_value_group').removeClass("has-error")
+
   $("#new_alert").on("ajax:success", (e, data, status, xhr) ->
     console.log("ok")
   ).on "ajax:error", (e, jqXHR, textStatus, errorThrown) ->
     console.log("pas ok")
+    $('#new_alert_error_field').show()
+    $('#target_value_group').addClass("has-error")
     data = JSON.parse( jqXHR.responseText );
     console.log(data['errors'])
     $('#new_alert_error_field').html(data['errors'])

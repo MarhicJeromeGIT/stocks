@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014081006) do
+ActiveRecord::Schema.define(version: 20161015120316) do
 
   create_table "alerts", force: :cascade do |t|
     t.string   "alert_type"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161014081006) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "contact"
+    t.string   "status"
     t.index ["stock_id"], name: "index_alerts_on_stock_id"
   end
 

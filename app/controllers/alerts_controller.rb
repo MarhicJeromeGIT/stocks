@@ -28,7 +28,7 @@ class AlertsController < ApplicationController
     if @alert.save
       render json: @alert, status: :created, location: @alert
     else
-      render json: {errors: @alert.errors.full_messages.join(',')}, :status => 422
+      render json: {errors: "Couldn't create the alert: " + @alert.errors.full_messages.join(',')}, :status => 422
     end
   end
 

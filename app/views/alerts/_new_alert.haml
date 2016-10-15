@@ -5,16 +5,16 @@
     %p
       Vous recevrez une alerte lorsque le cours de l'action atteindra votre valeur cible.
     = f.hidden_field :stock_id
-    .form-group
+    .form-group#target_value_group
       .input-group
-        .span#target_value_addon.input-group-addon
-          = f.label "valeur cible"
+        .span#target_value_addon.input-group-addon.has-error
+          = f.label "valeur cible", class: "has-error"
         = f.number_field :target_value, placeholder: 0.0, required: true, "aria-describedby": "target_value_addon", class: 'form-control'
-        %p#new_alert_error_field.help-block
+      %p#new_alert_error_field.help-block
     .form-group
       .input-group
         .span#contact_addon.input-group-addon
           = f.label "email de contact"
-        = f.text_field :contact, placeholder: "your@email.com", required: true, "aria-describedby": "contact_addon", class: 'form-control'
+        = f.email_field :contact, placeholder: "your@email.com", required: true, "aria-describedby": "contact_addon", class: 'form-control'
     %button#submit_alert.btn.btn-primary.btn-block
       Créer une alerte
