@@ -21,6 +21,7 @@
 # whenever --update-crontab
 #
 # Learn more: http://github.com/javan/whenever
+job_type :rake,    "cd :path && rvm use 2.3.0@stocks && :environment_variable=:environment bundle exec rake :task --silent :output"
 
 # Every day of the week (mon to fri), every one hour at hour:5 min from 8 am to 6pm go 
 # through my alarms and check if we should trigger them
