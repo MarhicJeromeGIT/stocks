@@ -1,0 +1,26 @@
+.col.col-md-12
+  %div.panel.panel-primary
+    %div.panel-heading.text-center
+      =@stock.name
+    %div.panel-body
+      %fieldset
+        %legend
+          Valeur en temps réel
+        %ul.list-group
+          %li.list-group-item
+            = "Valorisation : "
+            .pull-right
+              = @stock.stock_live_info.value_now
+          %li.list-group-item
+            = "Ouverture : "
+            .pull-right
+              = @stock.stock_live_info.value_open
+          %li.list-group-item
+            = "Plus haut : "
+            .pull-right
+              = @stock.stock_live_info.value_high
+          %li.list-group-item
+            = "Plus bas : "
+            .pull-right
+              = @stock.stock_live_info.value_low
+      =render partial: 'alerts/new_alert', locals: { alert: Alert.new(stock: @stock) }
