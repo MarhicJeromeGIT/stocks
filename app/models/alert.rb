@@ -12,6 +12,8 @@ class Alert < ApplicationRecord
   TYPE_ERROR        = "error"
   ALERT_TYPES = [TYPE_LOWER_THAN, TYPE_HIGHER_THAN, TYPE_ERROR]
   
+  scope :active, -> { where(status: STATUS_ACTIVE) }
+  
   belongs_to :stock
   
   before_validation :set_alert_type
@@ -22,16 +24,40 @@ class Alert < ApplicationRecord
   validates :target_value, presence: true
   validates :contact, presence: true
   validates :status, :inclusion => {:in => Alert::ALERT_STATUS}
+  
+  # trigger the alert: change the status and send an email to the user
+  def trigger
+    # TODO Send email
+    self.status = STATUS_TRIGGERED
+    self.save
+  end
 
   # Check if we should trigger the alert
   def check
     # don't trigger it twice
-    #if self.stock.
+    return unless self.status == STATUS_ACTIVE
+    
+    # if we finally reached the value, trigger the alert
+    if self.alert_type == TYPE_LOWER_THAN
+      # I don't poll the values all the time, so we take the lowest value of the
+      # day to compare with, not the current stock value, or we could miss some intra day variations.
+      # The stock value fell below our target value, trigger the alert
+      if self.target_value >= self.stock.stock_live_info.value_low
+        self.trigger
+      end
+    elsif self.alert_type == TYPE_HIGHER_THAN
+      # The stock value reached higher than our target value, trigger the alert
+      if self.target_value <= self.stock.stock_live_info.value_high
+        self.trigger
+      end
+    end
   end
   
   private
 
     def set_alert_type
+      # TODO This is called every time we update the alert, but 
+      # it should really be called at creation time only
       unless self.alert_type
         # determine if we want the action to go up or down
         if self.stock.stock_live_info.value_low > self.target_value

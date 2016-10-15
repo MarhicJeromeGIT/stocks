@@ -9,6 +9,10 @@ class StockLiveInfo < ApplicationRecord
   # Get the info from an outside live info feed, parse them and store them
   # TODO: add an adapter in between so i can use multiple feed, for when they shut this one.
   def update
+    # Ohohoh. If the values don't change, the updated_at is not updated.
+    # Use .touch method to set the update_at time, otherwise we poll the API everytime
+    # We access the value :(
+    self.touch
     symbol = self.stock.code
     url = "http://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=#{symbol}&place=XPAR&codif=ISIN"
     response = HTTParty.get(url)
@@ -24,7 +28,6 @@ class StockLiveInfo < ApplicationRecord
       self.value_open = parse_float(data["open"])
       self.value_high = parse_float(data["high"])
       self.value_low  = parse_float(data["low"])
-      
       return self.save
     end
     return success
