@@ -12,8 +12,10 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require datatables.min
+//=# require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
 //= require alerts
+//= require stocks
