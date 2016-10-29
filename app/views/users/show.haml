@@ -1,0 +1,19 @@
+%p
+  Hello 
+  = current_user.email
+  = link_to 'Log out', destroy_user_session_path, {method: 'DELETE', class:'btn btn-default'}
+
+%h2 List of your alerts
+%table#alert_table.table.table-striped.table-bordered.datatable.no-footer
+  %thead
+    %tr
+      %td Stock name
+      %td Target value
+      %td Alert status
+  %tbody
+    -@alerts.each do |a|
+      %tr
+        %td= a.stock.name
+        %td
+          = a.display_target_value
+        %td= a.status

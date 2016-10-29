@@ -12,5 +12,7 @@ module Stocks
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Paris"
+    
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   end
 end

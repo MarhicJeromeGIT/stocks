@@ -64,3 +64,7 @@ gem 'whenever', :require => false
 gem 'dotenv-rails'
 gem 'mysql2'
 gem 'jquery-datatables-rails'
+
+# user management
+gem 'devise'
+

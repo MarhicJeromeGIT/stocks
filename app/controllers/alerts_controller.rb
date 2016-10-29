@@ -24,6 +24,10 @@ class AlertsController < ApplicationController
   # POST /stocks
   def create
     @alert = Alert.new(alert_params)
+    # Add the current user if we have one :
+    if user_signed_in?
+      @alert.user = current_user
+    end 
 
     if @alert.save
       render json: @alert, status: :created, location: @alert

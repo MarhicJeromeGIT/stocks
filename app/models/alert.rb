@@ -1,5 +1,6 @@
 class Alert < ApplicationRecord
-  
+  belongs_to :user, optional: true
+
   # Posible alert status
   STATUS_ACTIVE    = "active"    # The alert has been created and not triggered yet
   STATUS_TRIGGERED = "triggered" # The alert has been triggered, not active anymore
@@ -22,7 +23,7 @@ class Alert < ApplicationRecord
   validates :alert_type, :inclusion => {:in => Alert::ALERT_TYPES}
   validates :stock, presence: true
   validates :target_value, presence: true
-  validates :contact, presence: true
+  validate :contact_or_user 
   validates :status, :inclusion => {:in => Alert::ALERT_STATUS}
   
   # trigger the alert: change the status and send an email to the user
@@ -53,8 +54,19 @@ class Alert < ApplicationRecord
     end
   end
   
+  
+  # Formatting helpers
+  def display_target_value
+    return target_value.to_s + " €"
+  end
+  
   private
-
+    def contact_or_user
+      unless contact || user
+        errors.add(:contact, "The email must be set to send an alert !")
+      end
+    end
+    
     def set_alert_type
       # TODO This is called every time we update the alert, but 
       # it should really be called at creation time only

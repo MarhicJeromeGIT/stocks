@@ -14,10 +14,11 @@
           = f.label "valeur cible", class: "has-error"
         = f.number_field :target_value, placeholder: 0.0, step: :any, required: true, "aria-describedby": "target_value_addon", class: 'form-control'
       %p#new_alert_error_field.help-block
-    .form-group
-      .input-group
-        .span#contact_addon.input-group-addon
-          = f.label "email de contact"
-        = f.email_field :contact, placeholder: "your@email.com", required: true, "aria-describedby": "contact_addon", class: 'form-control'
+    -unless user_signed_in?
+      .form-group
+        .input-group
+          .span#contact_addon.input-group-addon
+            = f.label "email de contact"
+          = f.email_field :contact, placeholder: "your@email.com", required: true, "aria-describedby": "contact_addon", class: 'form-control'
     %button#submit_alert.btn.btn-primary.btn-block
       Créer une alerte

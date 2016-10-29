@@ -1,23 +1,26 @@
-%div.masthead.clearfix
-  %nav.navbar.navbar-default
-    %div.container-fluid
-      %div.navbar-header
-        %button.navbar-toggle.collapsed{type:"button", 'data-toggle':"collapse", 'data-target': "#bs-example-navbar-collapse-1", 'aria-expanded': "false"}
-          %span.sr-only
-            Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{href: '/'}
-          Stocks
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      %div.collapse.navbar-collapse#bs-example-navbar-collapse-1
-        %ul.nav.navbar-nav
-          %li.active
-            %a{href: stocks_path}
-              Liste des actions
-          %li
-            %a{href: "#"}
+%nav.navbar.navbar-default
+  %div.container-fluid
+    %div.navbar-header
+      %button.navbar-toggle.collapsed{type:"button", 'data-toggle':"collapse", 'data-target': "#bs-example-navbar-collapse-1", 'aria-expanded': "false"}
+        %span.sr-only
+          Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: '/'}
+        Stocks
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    %div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %ul.nav.navbar-nav
+        %li.active
+          %a{href: stocks_path}
+            Liste des actions
+        %li
+          -if user_signed_in?
+            %a{href: user_path(current_user)}
               Mon compte
-          %li
-            %a{href: "#"}
-              A propos
+          -else
+            %a{href: new_user_session_path}
+              Mon compte
+        %li
+          %a{href: "#"}
+            A propos
