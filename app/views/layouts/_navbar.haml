@@ -13,14 +13,14 @@
       %ul.nav.navbar-nav
         %li.active
           %a{href: stocks_path}
-            Liste des actions
+            =I18n.t 'navbar.stock_list'
         %li
           -if user_signed_in?
             %a{href: user_path(current_user)}
-              Mon compte
+              =I18n.t 'navbar.my_account'
           -else
             %a{href: new_user_session_path}
-              Mon compte
+              =I18n.t 'navbar.my_account'
         %li
           %a{href: "#"}
-            A propos
+            =I18n.t 'navbar.about'

@@ -19,14 +19,14 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   navbar:
-    stock_list: "Stock list"
-    my_account: "My account"
-    about: "About"
+    stock_list: "Liste des actions"
+    my_account: "Mon compte"
+    about: "A propos"
 
   static_pages:
     welcome:
-      title: "Welcome on Stocks!"
-      presentation: "With Stocks, follow the price of your favorite shares day by day and receive alerts when it reaches your target level."
+      title: "Bienvenue sur Stocks!"
+      presentation: "Avec Stocks, suivez le prix de vos actions préférées et recevez une alerte lorsque leur prix atteint votre cible."
     

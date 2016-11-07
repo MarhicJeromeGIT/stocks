@@ -1,8 +1,7 @@
 %div.inner.cover
-  %h1.cover-heading Welcome on Stocks
+  %h1.cover-heading= I18n.t 'static_pages.welcome.title'
   %p.lead
-    With Stocks, follow the price of your favorite shares day by day
-    and receive alerts when it reaches your target level.
+    = I18n.t 'static_pages.welcome.presentation'
   %p.lead
     =link_to "View stocks", stocks_path, {class: "btn btn-lg btn-default"}
 

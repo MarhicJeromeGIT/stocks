@@ -14,5 +14,8 @@ module Stocks
     config.time_zone = "Paris"
     
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+    I18n.available_locales = [:fr, :en, :jp]
+    I18n.default_locale = :fr
   end
 end
