@@ -1,7 +1,7 @@
 class Stock < ApplicationRecord
-  has_one :stock_live_info
+  has_one :stock_live_info, autosave: true
   
-  before_create :create_stock_live_info
+  after_initialize :create_stock_live_info
   
   validates :name, presence: true
   validates :code, presence: true
@@ -13,7 +13,8 @@ class Stock < ApplicationRecord
   
   private
     def create_stock_live_info
-      self.build_stock_live_info
-      true
+      if self.new_record?
+        self.build_stock_live_info
+      end
     end
 end

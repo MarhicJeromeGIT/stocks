@@ -13,6 +13,8 @@ class StockLiveInfo < ApplicationRecord
     # Use .touch method to set the update_at time, otherwise we poll the API everytime
     # We access the value :(
     self.touch
+    p "calling update" 
+
     symbol = self.stock.code
     url = "http://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=#{symbol}&place=XPAR&codif=ISIN"
     response = HTTParty.get(url)
