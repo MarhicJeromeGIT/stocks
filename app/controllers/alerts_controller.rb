@@ -13,8 +13,6 @@ class AlertsController < ApplicationController
 
   # GET /stocks/1
   def show
-    @alert = Alert.find(params[:id])
-
     respond_to do |format|
       format.html
       format.json { render json: @alert}
@@ -57,7 +55,7 @@ class AlertsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alert
-      alert = Alert.find(params[:id])
+      @alert = Alert.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

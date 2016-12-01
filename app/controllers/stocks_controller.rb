@@ -13,8 +13,6 @@ class StocksController < ApplicationController
 
   # GET /stocks/1
   def show
-    @stock = Stock.find(params[:id])
-    
     respond_to do |format|
       format.html
       format.json { render json: @stock}
