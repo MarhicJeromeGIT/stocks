@@ -1,25 +1,6 @@
-# README
+Stocks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Code Climate](https://codeclimate.com/github/MarhicJeromeGIT/stocks/badges/gpa.svg)](https://codeclimate.com/github/MarhicJeromeGIT/stocks)
+[![Issue Count](https://codeclimate.com/github/MarhicJeromeGIT/stocks/badges/issue_count.svg)](https://codeclimate.com/github/MarhicJeromeGIT/stocks)[![Build Status](http://bandanatech.org:8080/buildStatus/icon?job=Stocks)](http://bandanatech.org:8080/job/Stocks)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# stocks
+Stocks allows you to set receive email alerts when a stock reaches a given price.
