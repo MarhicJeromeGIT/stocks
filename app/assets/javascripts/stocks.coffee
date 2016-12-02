@@ -1,4 +1,4 @@
 
 
 $ ->
-  $('#stocks_table').DataTable();
+  $('#stocks_table').DataTable()

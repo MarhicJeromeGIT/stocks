@@ -37,7 +37,7 @@ $ ->
     
     $('#new_alert_error_field').show()
     $('#target_value_group').addClass("has-error")
-    data = JSON.parse( jqXHR.responseText );
+    data = JSON.parse( jqXHR.responseText )
     console.log(data['errors'])
     $('#new_alert_error_field').html(data['errors'])
     

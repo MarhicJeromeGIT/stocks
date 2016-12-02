@@ -38,7 +38,7 @@ class StockLiveInfo < ApplicationRecord
   
     def parse_float(str)
       str.try(:match, /(\d+[,.]\d+)/) do |m|
-        return m[0].gsub(",",".").to_f
+        return m[0].tr(",",".").to_f
       end
       return nil
     end

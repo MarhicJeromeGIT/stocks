@@ -4,4 +4,4 @@
 
 
 $ ->
-  $('#alert_table').DataTable();
+  $('#alert_table').DataTable()

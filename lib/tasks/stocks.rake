@@ -8,7 +8,6 @@ namespace :stocks do
       csv_text = f.read
       csv = CSV.parse(csv_text, :headers => true, :col_sep => ";")
       csv.each do |row|
-        h = row.to_hash
         
         Stock.find_or_create_by(name: row["nom"]) do |stock|
           stock.code = row["ISIN"]
