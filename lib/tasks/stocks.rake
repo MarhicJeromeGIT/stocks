@@ -8,10 +8,10 @@ namespace :stocks do
       csv_text = f.read
       csv = CSV.parse(csv_text, :headers => true, :col_sep => ";")
       csv.each do |row|
-        Stock.find_or_initialize_by(name: row["nom"]) do |stock|
+        stock = Stock.where(name: row["nom"]).first_or_initialize do |stock|
           stock.code = row["ISIN"]
-          stock.save
         end
+        stock.save
       end
     end
   end

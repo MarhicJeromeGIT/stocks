@@ -14,7 +14,7 @@ class StockLiveInfo < ApplicationRecord
     # We access the value :(
     self.touch
     p "calling update" 
-
+return
     symbol = self.stock.code
     url = "http://lesechos-bourse-fo-cdn.wlb.aw.atos.net/streaming/cours/getCours?code=#{symbol}&place=XPAR&codif=ISIN"
     response = HTTParty.get(url)
