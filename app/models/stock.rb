@@ -1,7 +1,7 @@
 class Stock < ApplicationRecord
-  has_one :stock_live_info, autosave: true
+  has_one :stock_live_info, autosave: true, dependent: :destroy
   
-  after_initialize :create_stock_live_info
+  before_validation :create_stock_live_info
   
   validates :name, presence: true
   validates :code, presence: true

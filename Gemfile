@@ -8,7 +8,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
 # uses unicorn
-gem 'unicorn'
+#gem 'unicorn'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,7 +33,8 @@ gem 'jbuilder', '~> 2.5'
 group :development do
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-unicorn', :require => false
+  gem 'capistrano-passenger'
+ # gem 'capistrano-unicorn', :require => false
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
 end

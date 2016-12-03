@@ -27,7 +27,7 @@ set :rvm_ruby_version, '2.3.0@stocks'
 
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
-set :linked_files, %w{config/database.yml config/secrets.yml .env config/unicorn_init.sh config/unicorn.rb}
+set :linked_files, %w{config/database.yml config/secrets.yml .env}
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
@@ -38,40 +38,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# classic way of restarting passenger
+set :passenger_restart_with_touch, true
+
 namespace :deploy do
-  # task :start do ; end
-  # task :stop do ; end
-  desc "Start unicorn"
-  task :start do
-    on roles(:app) do
-      within current_path do
-        with RAILS_ENV: fetch(:rails_env) do
-          execute :bundle, :exec, "#{current_path}/config/unicorn_init.sh start"
-        end
-      end
-    end
-  end
-
-  desc "Stop unicorn"
-  task :stop do
-    on roles(:app) do
-      within current_path do
-        execute "#{current_path}/config/unicorn_init.sh stop"
-      end
-    end
-  end
-
-  desc "restart of Unicorn"
-  task :restart do
-    on roles(:app) do
-      within current_path do
-        with RAILS_ENV: fetch(:rails_env) do
-        #  execute "#{current_path}/config/unicorn_init.sh stop"
-         execute "#{current_path}/config/unicorn_init.sh restart"
-       end
-      end
-    end
-  end
-
-  after 'finishing', 'deploy:restart'    # app IS NOT preloaded
 end
