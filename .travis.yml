@@ -2,7 +2,8 @@ language: ruby
 rvm:
   - 2.3.0
 script:
-  - bundle exec rake test
+  - bin/rails db:migrate RAILS_ENV=test
+  - bundle exec rake
 branches:
   only:
     - master
