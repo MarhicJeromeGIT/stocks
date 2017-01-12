@@ -7,3 +7,9 @@ Stocks
 [![Build Status](http://bandanatech.org:8080/buildStatus/icon?job=Stocks)](http://bandanatech.org:8080/job/Stocks)
 
 Stocks allows you to set receive email alerts when a stock reaches a given price.
+
+TODO list:
+- change design
+- websocket to update 
+- intro.js for tutorial
+- websocket to update action price/alerts notifications
