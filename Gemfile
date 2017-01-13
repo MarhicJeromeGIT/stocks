@@ -68,4 +68,6 @@ gem 'jquery-datatables-rails'
 
 # user management
 gem 'devise'
+# policies management
+gem "pundit"
 
