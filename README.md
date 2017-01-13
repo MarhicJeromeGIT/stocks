@@ -4,7 +4,7 @@ Stocks
 
 [![Issue Count](https://codeclimate.com/github/MarhicJeromeGIT/stocks/badges/issue_count.svg)](https://codeclimate.com/github/MarhicJeromeGIT/stocks)
 
-[![Build Status](http://bandanatech.org:8080/buildStatus/icon?job=Stocks)](http://bandanatech.org:8080/job/Stocks)
+[![Build Status](https://travis-ci.org/MarhicJeromeGIT/stocks.svg?branch=master)](https://travis-ci.org/MarhicJeromeGIT/stocks)
 
 Stocks allows you to set receive email alerts when a stock reaches a given price.
 
