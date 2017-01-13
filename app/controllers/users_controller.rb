@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  
+  before_action :authenticate_user!
+
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
+
   def show
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
-    
+    @user = User.find params[:id]
+    authorize @user
+ 
     @alerts = current_user.alerts
   end
 end
