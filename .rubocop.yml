@@ -1,2 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
+# I don't care if it's not alphabetical order
+Bundler/OrderedGems:
+  Enabled: false
