@@ -42,4 +42,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+# VI swap file
+*.swp
 
