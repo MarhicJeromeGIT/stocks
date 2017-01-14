@@ -70,4 +70,6 @@ gem 'jquery-datatables-rails'
 gem 'devise'
 # policies management
 gem "pundit"
+# ruby syntax checks
+gem 'rubocop', require: false
 
