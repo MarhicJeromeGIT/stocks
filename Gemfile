@@ -76,4 +76,6 @@ gem 'devise'
 gem "pundit"
 # ruby syntax checks
 gem 'rubocop', require: false
+# Swagger API doc
+gem 'swagger-blocks'
 

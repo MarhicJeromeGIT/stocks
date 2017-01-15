@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :users
   
   root to: 'static_pages#welcome'
+
+  # For the swagger json api definition generation
+  resources :apidocs, only: [:index]
   
   get 'welcome', to: 'static_pages#welcome'
   get 'about', to: 'static_pages#about'
