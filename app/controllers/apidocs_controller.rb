@@ -42,7 +42,6 @@ class ApidocsController < ActionController::Base
     response.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS , PUT'
     response.headers['Access-Control-Allow-Origin'] =  '*'
 
-
     render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
   end
 end

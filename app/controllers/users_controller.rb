@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
   end
 
-  #before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
@@ -43,9 +43,9 @@ class UsersController < ApplicationController
  
     @alerts = @user.alerts
     respond_to do |format|
-      format.json {
+      format.json do
         render json: @user
-      }
+      end
       format.html
     end 
   end
