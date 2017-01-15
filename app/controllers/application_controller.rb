@@ -10,6 +10,9 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
+
+    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS , PUT'
+    response.headers['Access-Control-Allow-Origin'] =  '*'
   end
   
   def extract_locale_from_subdomain

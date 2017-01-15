@@ -1,24 +1,26 @@
 class UsersController < ApplicationController
   include Swagger::Blocks
-  swagger_path '/pets/{id}' do
+
+  # The User API swagger documentation
+  swagger_path '/users/{id}' do
     operation :get do
-      key :description, 'Returns a single pet if the user has access'
+      key :description, 'Returns a single user if the user has access'
       key :operationId, 'findPetById'
       key :tags, [
-        'pet'
+        'user'
       ]
       parameter do
         key :name, :id
         key :in, :path
-        key :description, 'ID of pet to fetch'
+        key :description, 'ID of user to fetch'
         key :required, true
         key :type, :integer
         key :format, :int64
       end
       response 200 do
-        key :description, 'pet response'
+        key :description, 'user response'
         schema do
-          key :'$ref', :Pet
+          key :'$ref', :User
         end
       end
       response :default do
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
     end
   end
 
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
@@ -39,6 +41,12 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     authorize @user
  
-    @alerts = current_user.alerts
+    @alerts = @user.alerts
+    respond_to do |format|
+      format.json {
+        render json: @user
+      }
+      format.html
+    end 
   end
 end
