@@ -1,18 +1,18 @@
 class User < ApplicationRecord
+  # Include default devise modules.
+  include DeviseTokenAuth::Concerns::User
   include Swagger::Blocks
-
+ 
   swagger_schema :User do
-    key :required, [:id, :name]
+    key :required, [:id, :email]
     property :id do
       key :type, :integer
       key :format, :int64
     end
-    property :name do
+    property :email do
       key :type, :string
     end
-    property :tag do
-      key :type, :string
-    end
+  
   end
 
   # Include default devise modules. Others available are:

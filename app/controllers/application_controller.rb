@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session #:exception
+  skip_before_action :verify_authenticity_token
   
   before_action :set_locale
   
@@ -11,8 +13,8 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
 
-    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS , PUT'
-    response.headers['Access-Control-Allow-Origin'] =  '*'
+    #response.headers['Access-Control-Allow-Methods'] = 'POST, GET, UPDATE, PUT'
+    #response.headers['Access-Control-Allow-Origin'] =  '*'
   end
   
   def extract_locale_from_subdomain

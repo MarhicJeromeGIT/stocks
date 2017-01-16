@@ -17,5 +17,14 @@ module Stocks
 
     I18n.available_locales = [:fr, :en, :jp]
     I18n.default_locale = :fr
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
   end
 end
+

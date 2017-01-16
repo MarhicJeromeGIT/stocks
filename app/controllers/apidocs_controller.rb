@@ -25,14 +25,14 @@ class ApidocsController < ActionController::Base
       end
     end
     key :host, '52.211.249.61:3000'
-    key :basePath, ''
+    key :basePath, '/'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
 
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
-    UsersController,
+    Api::UsersController,
     User,
     ErrorModel,
     self

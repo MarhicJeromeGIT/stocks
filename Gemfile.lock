@@ -92,6 +92,9 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (0.1.39)
+      devise (> 3.5.2, <= 4.2)
+      rails (< 6)
     docile (1.1.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -177,6 +180,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -285,6 +289,7 @@ DEPENDENCIES
   capistrano-rvm
   coffee-rails (~> 4.2)
   devise
+  devise_token_auth
   dotenv-rails
   haml-rails (~> 0.9)
   httparty
@@ -296,6 +301,7 @@ DEPENDENCIES
   omniauth
   omniauth-github!
   pundit
+  rack-cors
   rails (~> 5.0.0, >= 5.0.0.1)
   rubocop
   sass-rails (~> 5.0)
