@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   
   rescue_from Pundit::NotAuthorizedError, with: :not_found_or_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_or_not_authorized
+  
+  after_action :test
+  def test
+    response.headers['myheader'] = 'hehehe' 
+  end
 
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
@@ -25,8 +30,15 @@ class ApplicationController < ActionController::Base
   private
   
   def not_found_or_not_authorized
-    flash[:alert] = "The record does not exist or you are not authorized to perform this action."
-    redirect_to(request.referrer || root_path)
+    respond_to do |format|
+      format.json {
+        render json: {"erreur": "non!"}
+      }
+      format.html {
+        flash[:alert] = "The record does not exist or you are not authorized to perform this action."
+        redirect_to(request.referrer || root_path)
+      }
+    end
   end
   
 

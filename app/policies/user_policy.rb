@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
-  def show
-    true
+  def show?
+    @user.id == @record.id
   end
 end
 

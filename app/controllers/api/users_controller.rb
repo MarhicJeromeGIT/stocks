@@ -4,7 +4,7 @@ class Api::UsersController
   # The User API swagger documentation
   swagger_path '/api/auth/sign_in' do
     operation :post do
-      key :description, 'Sign in the user. Return an authentication token in the header'
+      key :description, "Sign in the user. Return an authentication token in the header. curl -i -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"email\": \"alice@test.com\", \"password\": \"azerty\" }' http://52.211.249.61:3000/api/auth/sign_in"
       key :operationId, 'findPetById'
       key :tags, [
         'user'
