@@ -2,24 +2,19 @@ class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
 
-  protect_from_forgery with: :null_session #:exception
-  skip_before_action :verify_authenticity_token
-  
+  #protect_from_forgery with: :null_session #:exception
+  #skip_before_action :verify_authenticity_token
+  protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token, if: -> {params[:controller].split('/')[0] == 'devise_token_auth'}
+ 
+ 
   before_action :set_locale
+ 
+  #rescue_from Pundit::NotAuthorizedError, with: :not_found_or_not_authorized
+  #rescue_from ActiveRecord::RecordNotFound, with: :not_found_or_not_authorized
   
-  rescue_from Pundit::NotAuthorizedError, with: :not_found_or_not_authorized
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found_or_not_authorized
-  
-  after_action :test
-  def test
-    response.headers['myheader'] = 'hehehe' 
-  end
-
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
-
-    #response.headers['Access-Control-Allow-Methods'] = 'POST, GET, UPDATE, PUT'
-    #response.headers['Access-Control-Allow-Origin'] =  '*'
   end
   
   def extract_locale_from_subdomain

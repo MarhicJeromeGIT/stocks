@@ -12,8 +12,9 @@ class User < ApplicationRecord
     property :email do
       key :type, :string
     end
-  
   end
+
+  enum role: [:user, :admin]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

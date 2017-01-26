@@ -24,6 +24,10 @@ class ApidocsController < ActionController::Base
         key :url, 'https://stocks.bandanatech.org'
       end
     end
+    tag do
+      key :name, 'alert'
+      key :description, 'Alert operations'
+    end
     key :host, '52.211.249.61:3000'
     key :basePath, '/'
     key :consumes, ['application/json']
@@ -34,15 +38,16 @@ class ApidocsController < ActionController::Base
   SWAGGERED_CLASSES = [
     Api::UsersController,
     UsersController,
+    AlertsController,
+    Alert,
+    Stocks,
+    StocksController,
     User,
     ErrorModel,
     self
   ].freeze
 
   def index
-    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS , PUT'
-    response.headers['Access-Control-Allow-Origin'] =  '*'
-
     render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
   end
 end

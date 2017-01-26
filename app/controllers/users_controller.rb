@@ -17,34 +17,7 @@ class UsersController < ApplicationController
         key :type, :integer
         key :format, :int64
       end
-      parameter do
-        key :name, :uid
-        key :in, :header
-        key :type, :string   
-      end
-      parameter do
-        key :name, 'access-token'
-        key :in, :header
-        key :type, :string
-      end  
-      parameter do
-        key :name, 'token-type' 
-        key :in, :header
-        key :type, :string
-        key :default, 'Bearer'
-      end  
-      parameter do
-        key :name, 'client' 
-        key :in, :header
-        key :type, :string
-      end
-      parameter do
-        key :name, 'expiry' 
-        key :in, :header
-        key :type, :string
-      end
-
-    response 200 do
+      response 200 do
         key :description, 'user response'
         schema do
           key :'$ref', :User
@@ -64,13 +37,24 @@ class UsersController < ApplicationController
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
-  def show
-    puts "CURRENT USER"
-      puts current_user
+  def index
+    @users = policy_scope(User)
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+    end
+  end
 
+  def show
     @user = User.find params[:id]
     authorize @user
-    
-    render json: @user
+ 
+    @alerts = @user.alerts
+    respond_to do |format|
+      format.json {
+        render json: @user
+      }
+      format.html 
+    end
   end
 end
