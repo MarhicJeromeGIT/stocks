@@ -24,7 +24,7 @@ fr:
     stock_list: "Liste des actions"
     my_account: "Mon compte"
     about: "A propos"
-
+    apidoc: 'API Documentation'
   static_pages:
     welcome:
       title: "Bienvenue sur Stocks!"

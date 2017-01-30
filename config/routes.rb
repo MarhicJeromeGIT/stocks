@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   get 'welcome', to: 'static_pages#welcome'
   get 'about', to: 'static_pages#about'
+  get 'apidocs', to: 'apidocs#index'
   
   resources :stocks
   resources :alerts

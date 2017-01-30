@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include DeviseTokenAuth::Concerns::SetUserByToken
+  #include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
 
   #protect_from_forgery with: :null_session #:exception
@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token, if: -> {params[:controller].split('/')[0] == 'devise_token_auth'}
  
+  #before_action :authenticate_user!
  
   before_action :set_locale
  

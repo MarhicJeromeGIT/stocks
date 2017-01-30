@@ -44,7 +44,7 @@ class StocksController < ApplicationController
     end
   end
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
