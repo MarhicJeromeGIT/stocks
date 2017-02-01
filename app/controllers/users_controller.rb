@@ -37,14 +37,6 @@ class UsersController < ApplicationController
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
-  def index
-    @users = policy_scope(User)
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
-  end
-
   def show
     @user = User.find params[:id]
     authorize @user
@@ -54,7 +46,7 @@ class UsersController < ApplicationController
       format.json {
         render json: @user
       }
-      format.html 
-    end
+      format.html
+    end 
   end
 end

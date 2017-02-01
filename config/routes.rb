@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  namespace :api do
-    mount_devise_token_auth_for 'User', at: 'auth'
-  end
   resources :users
-  
+  namespace :api do
+    post 'sign_in_token', to: 'api_application#sign_in'
+  end
+
   root to: 'static_pages#welcome'
 
   # For the swagger json api definition generation

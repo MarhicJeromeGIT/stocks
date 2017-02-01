@@ -80,6 +80,5 @@ gem 'rubocop', require: false
 gem 'swagger-blocks'
 gem 'omniauth'
 gem 'omniauth-github', github: 'intridea/omniauth-github'
-gem 'devise_token_auth'
 gem 'rack-cors', :require => 'rack/cors'
 

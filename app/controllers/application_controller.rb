@@ -1,18 +1,13 @@
 class ApplicationController < ActionController::Base
-  #include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
 
   #protect_from_forgery with: :null_session #:exception
-  #skip_before_action :verify_authenticity_token
   protect_from_forgery with: :exception
-  skip_before_action :verify_authenticity_token, if: -> {params[:controller].split('/')[0] == 'devise_token_auth'}
- 
-  #before_action :authenticate_user!
  
   before_action :set_locale
  
-  #rescue_from Pundit::NotAuthorizedError, with: :not_found_or_not_authorized
-  #rescue_from ActiveRecord::RecordNotFound, with: :not_found_or_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :not_found_or_not_authorized
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found_or_not_authorized
   
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
