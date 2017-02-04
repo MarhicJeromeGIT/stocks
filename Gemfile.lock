@@ -302,7 +302,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.0.0, >= 5.0.0.1)
   rubocop
-  sass-rails (~> 5.0)
+  sass-rails
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
