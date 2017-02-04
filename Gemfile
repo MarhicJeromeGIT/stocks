@@ -10,7 +10,7 @@ gem 'sqlite3'
 # uses unicorn
 #gem 'unicorn'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails' 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -78,4 +78,7 @@ gem "pundit"
 gem 'rubocop', require: false
 # Swagger API doc
 gem 'swagger-blocks'
-
+gem 'omniauth'
+gem 'omniauth-github', github: 'intridea/omniauth-github'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'ejs' # fixes travis error

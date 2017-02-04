@@ -5,40 +5,52 @@ class ApidocsController < ActionController::Base
     key :swagger, '2.0'
     info do
       key :version, '1.0.0'
-      key :title, 'Swagger Petstore'
-      key :description, 'A sample API that uses a petstore as an example to ' \
-                        'demonstrate features in the swagger-2.0 specification'
-      key :termsOfService, 'http://helloreverb.com/terms/'
+      key :title, 'Stocks API'
+      key :description, 'The Stocks API documentation, that shows how to create an account' \
+                        'and create and receive stock price alerts'
+      key :termsOfService, ''
       contact do
-        key :name, 'Wordnik API Team'
+        key :name, 'www.bandanatech.org'
       end
       license do
         key :name, 'MIT'
       end
     end
     tag do
-      key :name, 'pet'
-      key :description, 'Pets operations'
+      key :name, 'user'
+      key :description, 'User operations'
       externalDocs do
         key :description, 'Find more info here'
-        key :url, 'https://swagger.io'
+        key :url, 'https://stocks.bandanatech.org'
       end
     end
-    key :host, 'petstore.swagger.wordnik.com'
-    key :basePath, '/api'
+    tag do
+      key :name, 'alert'
+      key :description, 'Alert operations'
+    end
+    key :host, '52.211.249.61:3000'
+    key :basePath, '/'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
 
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
+    Api::UsersController,
     UsersController,
+    AlertsController,
+    Alert,
+    Stocks,
+    StocksController,
     User,
     ErrorModel,
     self
   ].freeze
 
   def index
-    render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
+    respond_to do |format|
+      format.json { render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES) }
+      format.html
+    end
   end
 end
