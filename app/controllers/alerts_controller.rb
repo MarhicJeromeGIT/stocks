@@ -44,7 +44,8 @@ class AlertsController < ApplicationController
     end
   end
 
-  before_action :authenticate_user!
+  # A guest user can create an alert
+  before_action :authenticate_user!, except: [:create]
   
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
@@ -70,6 +71,7 @@ class AlertsController < ApplicationController
   # POST /stocks
   def create
     @alert = Alert.new(alert_params)
+    authorize @alert
     # Add the current user if we have one :
     if user_signed_in?
       @alert.user = current_user
