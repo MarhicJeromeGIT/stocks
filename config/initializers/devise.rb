@@ -254,9 +254,8 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   config.warden do |manager|
-  #   manager.intercept_401 = false
+    # manager.intercept_401 = false
     Warden::Strategies.add(:warden_token_auth, Devise::Strategies::WardenTokenAuth)
-
     manager.default_strategies(scope: :user).unshift :warden_token_auth
   end
 

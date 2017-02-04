@@ -43,9 +43,7 @@ class UsersController < ApplicationController
  
     @alerts = @user.alerts
     respond_to do |format|
-      format.json {
-        render json: @user
-      }
+      format.json { render json: @user }
       format.html
     end 
   end

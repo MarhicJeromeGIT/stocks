@@ -13,11 +13,10 @@ module Devise
       end
     
       def valid?
-        true
+        false # true
       end    
     end
   end
 end
 
 # Warden::Strategies.add(:warden_token_auth, Devise::Strategies::WardenTokenAuth)
-

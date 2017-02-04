@@ -22,10 +22,8 @@ module Stocks
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options], :expose => '*', :credentials => true
+        resource '*', headers: :any, methods: [:get, :post, :options], expose: '*', credentials: true
       end
     end
-
   end
 end
-
