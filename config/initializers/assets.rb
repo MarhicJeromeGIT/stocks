@@ -8,8 +8,11 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.paths << Rails.root.join('vendor')
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets')
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'SwaggerUI')
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'SwaggerUI', 'css')
+
+if Rails.env != 'test'
+  Rails.application.config.assets.paths << Rails.root.join('vendor', 'SwaggerUI')
+  Rails.application.config.assets.paths << Rails.root.join('vendor', 'SwaggerUI', 'css')
+end
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
