@@ -9,7 +9,7 @@ branches:
   only:
     - master
     - develop
-
+    - travis-asset-fix
 addons:
   code_climate:
     repo_token: 9822ef8707167cba8d26129649ead153d04940535e7396c3beae417505015f00 

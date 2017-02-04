@@ -1,5 +1,6 @@
 
 $(document).ready( function(){
+    return;
     console.log("test");
     var swaggerUi = new SwaggerUi({
        url: '/apidocs.json',
