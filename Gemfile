@@ -81,4 +81,4 @@ gem 'swagger-blocks'
 gem 'omniauth'
 gem 'omniauth-github', github: 'intridea/omniauth-github'
 gem 'rack-cors', :require => 'rack/cors'
-
+gem 'ejs' # fixes travis error
