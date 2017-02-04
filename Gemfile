@@ -68,7 +68,7 @@ gem 'whenever', :require => false
 # load variables from .env into ENV
 gem 'dotenv-rails'
 gem 'mysql2'
-#gem 'jquery-datatables-rails'
+gem 'jquery-datatables-rails'
 
 # user management
 gem 'devise'
