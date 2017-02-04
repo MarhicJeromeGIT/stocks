@@ -1,0 +1,62 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+fr:
+  devise:
+    confirmations:
+      confirmed: "Votre compte a Ã©tÃ© validÃ©."
+      send_instructions: "Vous allez recevoir les instructions nÃ©cessaires Ã  la confirmation de votre compte dans quelques minutes."
+      send_paranoid_instructions: "Si votre e-mail existe dans notre base de donnÃ©es, vous allez bientÃ´t recevoir un e-mail contenant les instructions de confirmation de votre compte."
+    failure:
+      already_authenticated: "Vous Ãªtes dÃ©jÃ  connectÃ©"
+      inactive: "Votre compte n'est pas encore activÃ©."
+      invalid: "Email ou mot de passe incorrect."
+      last_attempt: "Vous avez droit Ã  une tentative avant que votre compte ne soit verrouillÃ©."
+      locked: "Votre compte est verrouillÃ©."
+      not_found_in_database: "Email ou mot de passe invalide."
+      timeout: "Votre session est expirÃ©e. Veuillez vous reconnecter pour continuer."
+      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      unconfirmed: "Vous devez valider votre compte pour continuer."
+    mailer:
+      confirmation_instructions:
+        subject: "Instructions de confirmation"
+      reset_password_instructions:
+        subject: "Instructions pour changer le mot de passe"
+      unlock_instructions:
+        subject: "Instructions pour dÃ©verrouiller le compte"
+      password_change:
+        subject: "Votre mot de passe a Ã©tÃ© modifiÃ© avec succÃ©s."
+    omniauth_callbacks:
+      failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
+      success: "AuthentifiÃ© avec succÃ¨s via %{kind}."
+    passwords:
+      no_token: "Vous ne pouvez accÃ©der Ã  cette page sans passer par un e-mail de rÃ©initialisation de mot de passe. Si vous Ãªtes passÃ© par un e-mail de ce type, assurez-vous d'utiliser l'URL complÃ¨te."
+      send_instructions: "Vous allez recevoir les instructions de rÃ©initialisation du mot de passe dans quelques instants"
+      send_paranoid_instructions: "Si votre e-mail existe dans notre base de donnÃ©es, vous allez recevoir un lien de rÃ©initialisation par e-mail"
+      updated: "Votre mot de passe a Ã©tÃ© Ã©ditÃ© avec succÃ¨s, vous Ãªtes maintenant connectÃ©"
+      updated_not_active: "Votre mot de passe a Ã©tÃ© changÃ© avec succÃ¨s."
+    registrations:
+      destroyed: "Votre compte a Ã©tÃ© supprimÃ© avec succÃ¨s. Nous espÃ©rons vous revoir bientÃ´t."
+      signed_up: "Bienvenue, vous Ãªtes connectÃ©."
+      signed_up_but_inactive: "Vous Ãªtes bien enregistrÃ©. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activÃ©."
+      signed_up_but_locked: "Vous Ãªtes bien enregistrÃ©. Vous ne pouvez cependant pas vous connecter car votre compte est verrouillÃ©."
+      signed_up_but_unconfirmed: "Un message contenant un lien de confirmation a Ã©tÃ© envoyÃ© Ã  votre adresse email. Ouvrez ce lien pour activer votre compte."
+      update_needs_confirmation: "Votre compte a bien Ã©tÃ© mis Ã  jour mais nous devons vÃ©rifier votre nouvelle adresse email. Merci de vÃ©rifier vos emails et de cliquer sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse."
+      updated: "Votre compte a Ã©tÃ© modifiÃ© avec succÃ¨s."
+    sessions:
+      signed_in: "ConnectÃ©."
+      signed_out: "DÃ©connectÃ©."
+      already_signed_out: "DÃ©connectÃ©."
+    unlocks:
+      send_instructions: "Vous allez recevoir les instructions nÃ©cessaires au dÃ©verrouillage de votre compte dans quelques instants"
+      send_paranoid_instructions: "Si votre compte existe, vous allez bientÃ´t recevoir un email contenant les instructions pour le dÃ©verrouiller."
+      unlocked: "Votre compte a Ã©tÃ© dÃ©verrouillÃ© avec succÃ¨s, vous Ãªtes maintenant connectÃ©."
+  errors:
+    messages:
+      already_confirmed: "a dÃ©jÃ  Ã©tÃ© validÃ©(e), veuillez essayer de vous connecter"
+      confirmation_period_expired: "Ã  confirmer dans les %{period}, merci de faire une nouvelle demande"
+      expired: "a expirÃ©, merci d'en faire une nouvelle demande"
+      not_found: "n'a pas Ã©tÃ© trouvÃ©(e)"
+      not_locked: "n'Ã©tait pas verrouillÃ©(e)"
+      not_saved:
+        one: "1 erreur a empÃªchÃ© ce(tte) %{resource} d'Ãªtre sauvegardÃ©(e) :"
+        other: "%{count} erreurs ont empÃªchÃ© ce(tte) %{resource} d'Ãªtre sauvegardÃ©(e) :"

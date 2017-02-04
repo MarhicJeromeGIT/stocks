@@ -1,4 +1,31 @@
 class Alert < ApplicationRecord
+  include Swagger::Blocks
+
+  swagger_schema :Alert do
+    key :required, [:id, :email]
+    property :id do
+      key :type, :integer
+      key :format, :int64
+    end
+    property :alert_type do
+      key :type, :string
+    end
+    property :contact do
+      key :type, :string
+    end
+    property :status do
+      key :type, :string
+    end
+    property :stock_id do
+      key :type, :integer
+      key :format, :int64
+    end
+    property :user_id do
+      key :type, :integer
+      key :format, :int64
+    end
+  end
+
   belongs_to :user, optional: true
 
   # Posible alert status

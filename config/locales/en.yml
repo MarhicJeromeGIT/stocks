@@ -24,7 +24,7 @@ en:
     stock_list: "Stock list"
     my_account: "My account"
     about: "About"
-
+    apidoc: 'API Documentation'
   static_pages:
     welcome:
       title: "Welcome on Stocks!"

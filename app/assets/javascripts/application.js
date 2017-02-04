@@ -17,5 +17,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+//= require apidocs
 //= require alerts
 //= require stocks
