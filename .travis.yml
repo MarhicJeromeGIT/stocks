@@ -4,6 +4,7 @@ rvm:
 script:
   - bin/rails db:migrate RAILS_ENV=test
   - bundle exec rake
+  - bundle exec rubocop
 branches:
   only:
     - master
