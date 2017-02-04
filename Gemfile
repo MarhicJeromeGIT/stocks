@@ -61,14 +61,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "haml-rails", "~> 0.9"
-gem 'bootstrap-sass', '~> 3.3.6'
+#gem 'bootstrap-sass', '~> 3.3.6'
 gem 'httparty'
 #cron job management
 gem 'whenever', :require => false
 # load variables from .env into ENV
 gem 'dotenv-rails'
 gem 'mysql2'
-gem 'jquery-datatables-rails'
+#gem 'jquery-datatables-rails'
 
 # user management
 gem 'devise'
