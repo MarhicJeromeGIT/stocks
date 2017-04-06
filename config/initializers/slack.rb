@@ -3,5 +3,4 @@ notifier = Slack::Notifier.new ENV["SLACK_WEBHOOK_URL"] do
            username: "notifier"
 end
 
-notifier.ping "Initializing Stocks app"
-
+notifier.ping 'Initializing Stocks app'
