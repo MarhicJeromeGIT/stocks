@@ -1,5 +1,4 @@
 # config valid only for current version of Capistrano
-lock '3.6.1'
 
 set :application, 'stocks'
 set :repo_url, 'git@github.com:MarhicJeromeGIT/stocks.git'

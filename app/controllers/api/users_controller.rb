@@ -1,21 +1,21 @@
 module Api
   class UsersController
     include Swagger::Blocks
-
-    # The User API swagger documentation
-    swagger_path '/api/auth/sign_in' do
-      operation :post do
-        key :description, "Sign in the user. Return an authentication token in the header. curl -i -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"email\": \"alice@test.com\", \"password\": \"azerty\" }' http://52.211.249.61:3000/api/auth/sign_in"
+  
+    swagger_path '/users/{id}' do
+      operation :get do
+        key :description, 'Returns a single user if the user has access'
         key :operationId, 'findPetById'
         key :tags, [
           'user'
         ]
         parameter do
-          key :name, :body
-          key :in, :body
-          key :description, 'email of the user'
-          schema do
-          end
+          key :name, :id
+          key :in, :path
+          key :description, 'ID of user to fetch'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
         end
         response 200 do
           key :description, 'user response'
