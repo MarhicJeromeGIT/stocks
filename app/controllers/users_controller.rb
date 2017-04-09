@@ -32,9 +32,9 @@ class UsersController < ApplicationController
     end
   end
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:facebook]
 
-  after_action :verify_authorized, except: :index
+  after_action :verify_authorized, except: [:index, :facebook]
   after_action :verify_policy_scoped, only: :index
 
   def show
@@ -43,8 +43,23 @@ class UsersController < ApplicationController
  
     @alerts = @user.alerts
     respond_to do |format|
-      format.json { render json: @user }
-      format.html
-    end 
+      format.json do
+        render json: @user
+      end 
+      format.html 
+    end
+  end
+
+  def facebook
+    data = request.env['omniauth.auth']&.info
+    return unless data
+    name = data.name
+    email = data.email
+    puts name
+    @user = User.find_or_create_by(email: email) do |user|
+      user.provider = 'facebook'
+    end
+    sign_in(@user)
+    redirect_to root_path
   end
 end

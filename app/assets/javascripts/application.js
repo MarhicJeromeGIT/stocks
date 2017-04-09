@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
-
+//= require facebook
 //= require alerts

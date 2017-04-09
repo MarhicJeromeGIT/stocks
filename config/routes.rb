@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#welcome'
 
+  get 'auth/facebook/callback', to: 'users#facebook'
+
   # For the swagger json api definition generation
   resources :apidocs, only: [:index]
   
