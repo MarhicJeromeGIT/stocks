@@ -1,0 +1,26 @@
+
+
+body, html{
+  max-width: 1024px;
+  margin: auto;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1024px;
+    }
+}
+
+.jumbotron{
+  text-align: center;
+}
+
+.equal{
+  display: flex;
+  display: -webkit-flex;
+}
+
+.col-register{
+  border-left: black 1px solid;
+  border-right: black 1px solid;
+}

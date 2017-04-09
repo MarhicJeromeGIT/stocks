@@ -13,8 +13,9 @@
  *= require dataTables/jquery.dataTables
  */
 
-//@import 'datatables.min';
-
+@import 'dataTables/jquery.dataTables';
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "stocks";

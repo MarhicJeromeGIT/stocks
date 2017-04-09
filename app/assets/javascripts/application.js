@@ -17,3 +17,4 @@
 //= require facebook
 //= require alerts
 //= require navbar
+//= require stocks

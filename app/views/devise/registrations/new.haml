@@ -1,0 +1,29 @@
+.jumbotron
+  %h2 Sign up
+  %p= I18n.t 'signup_explanation'
+  .row.equal
+    .col-sm-4
+      = facebook_button()
+    .col-sm-4.col-register
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Sign up"
+      = render "devise/shared/links"
+    .col-sm-4
+      = github_button
