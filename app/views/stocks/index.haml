@@ -1,14 +1,14 @@
-%h1
-  Stocks
-
-%table#stocks_table.table.table-striped.table-bordered.dataTable.no-footer
-  %thead
-    %th Stock
-  %tbody
-    -@stocks.each do |s|
-      %tr
-        %td
-          =link_to s do
-            %strong
-              = s.name
-            = "(#{s.code})"
+.well
+  %p
+    = I18n.t 'stocks.pick_up'
+  %table#stocks_table.table.table-striped.table-bordered.dataTable.no-footer
+    %thead
+      %th Stock
+    %tbody
+      -@stocks.each do |s|
+        %tr
+          %td
+            =link_to s do
+              %strong
+                = s.name
+              = "(#{s.code})"

@@ -16,3 +16,5 @@
 //= require bootstrap-sprockets
 //= require facebook
 //= require alerts
+//= require navbar
+//= require stocks

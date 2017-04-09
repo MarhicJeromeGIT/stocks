@@ -1,7 +1,7 @@
-%div.inner.cover
-  %h1.cover-heading= I18n.t 'static_pages.welcome.title'
-  %p.lead
+.jumbotron
+  %h1= I18n.t 'static_pages.welcome.title'
+  %p
     = I18n.t 'static_pages.welcome.presentation'
-  %p.lead
+  %p
     =link_to "View stocks", stocks_path, {class: "btn btn-lg btn-default"}
 

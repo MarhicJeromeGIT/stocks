@@ -6,11 +6,11 @@ class ApidocsController < ActionController::Base
     info do
       key :version, '1.0.0'
       key :title, 'Stocks API'
-      key :description, 'The Stocks API documentation, that shows how to create an account' \
-                        'and create and receive stock price alerts'
+      key :description, 'The Stocks API documentation, that shows how to create an account,' \
+                        'login and create and receive stock price alerts.'
       key :termsOfService, ''
       contact do
-        key :name, 'www.bandanatech.org'
+        key :name, 'Marhic Jérôme'
       end
       license do
         key :name, 'MIT'
@@ -28,8 +28,8 @@ class ApidocsController < ActionController::Base
       key :name, 'alert'
       key :description, 'Alert operations'
     end
-    key :host, '52.211.249.61:3000'
-    key :basePath, '/'
+    key :host, ENV['BASE_URL']
+    key :basePath, '/api'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
@@ -37,6 +37,8 @@ class ApidocsController < ActionController::Base
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
     Api::UsersController,
+    Api::AlertsController,
+    Api::ApiApplicationController,
     UsersController,
     AlertsController,
     Alert,
