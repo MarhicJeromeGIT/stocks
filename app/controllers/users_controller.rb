@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:facebook]
 
   after_action :verify_authorized, except: [:index, :facebook]
   after_action :verify_policy_scoped, only: :index
@@ -56,9 +56,10 @@ class UsersController < ApplicationController
     name = data.name
     email = data.email
     puts name
-    user = User.find_or_create_by(email: email) do
+    @user = User.find_or_create_by(email: email) do |user|
+      user.provider = 'facebook'
     end
-    sign_in(user)
-    redirect_to '/'
+    sign_in(@user)
+    redirect_to root_path
   end
 end
