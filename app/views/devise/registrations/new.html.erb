@@ -1,5 +1,12 @@
 <h2>Sign up</h2>
 
+<!-- <div class="fb-login-button" data-max-rows="2" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div> -->
+<%= facebook_button() %>
+
+<div id="status">
+</div>
+
+TEST 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 

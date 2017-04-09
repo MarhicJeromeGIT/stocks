@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201002306) do
+ActiveRecord::Schema.define(version: 20170406130759) do
 
   create_table "alerts", force: :cascade do |t|
     t.string   "alert_type"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170201002306) do
     t.string   "authentication_token",   limit: 30
     t.integer  "role",                              default: 0
     t.string   "warden_auth_token"
+    t.string   "provider",                          default: ""
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
