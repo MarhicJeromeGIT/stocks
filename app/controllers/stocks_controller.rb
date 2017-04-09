@@ -1,48 +1,5 @@
 class StocksController < ApplicationController
-  include Swagger::Blocks
-
   before_action :set_stock, only: [:show, :update, :destroy]
-
-  # The Stock API swagger documentation
-  swagger_path '/stocks' do
-    operation :get do
-      key :description, 'Returns the list of watchable stocks'
-      key :operationId, 'findPetById'
-      key :tags, [
-        'stock'
-      ]
-      parameter do
-        key :in, :header
-        key :name, 'access-token'
-        key :type, :string
-      end
-      parameter do
-        key :in, :header
-        key :name, :uid
-        key :type, :integer
-      end
-      parameter do
-        key :in, :header
-        key :name, :client
-        key :type, :string
-      end
-      response 200 do
-        key :description, 'list of alerts'
-        schema do
-          key :type, :array
-          items do
-            key :'$ref', :Alert
-          end
-        end
-      end
-      response :default do
-        key :description, 'unexpected error'
-        schema do
-          key :'$ref', :ErrorModel
-        end
-      end
-    end
-  end
 
   before_action :authenticate_user!, except: [:index, :show]
 
