@@ -12,3 +12,14 @@ fr:
     pick_up: 'Choisissez une action à suivre dans la liste ci-dessous:'
   log_in: 'Connectez-vous'
   signup_explanation: 'Choisssez un identifiant et un mot de passe, ou bien connectez-vous avec votre compte facebook ou github.'
+  alerts:
+    count:
+      zero: Aucune alerte
+      one: 1 alerte
+      other: "%{count} alertes"
+  about:
+    summary: "Stocks permet de suivre l'évolution du prix d'une action du CAC 40."
+    technology1: "Rails 5 - Passenger - Apache"
+    technology2: "Gemmes: Omniauth - Devise"
+    technology3: "API: Swagger"
+    future: "A venir"

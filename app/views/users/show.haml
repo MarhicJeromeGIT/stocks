@@ -1,22 +1,22 @@
-%p
-  Hello 
-  = @user.email
-  -if @user.provider.blank?
+.well
+  %p
+    Hello 
+    = @user.email
+  %p
     = link_to 'Log out', destroy_user_session_path, {method: 'DELETE', class:'btn btn-default'}
-  - elsif @user.provider == 'facebook'
-    = facebook_button
  
-%h2 List of your alerts
-%table#alert_table.table.table-striped.table-bordered.datatable.no-footer
-  %thead
-    %tr
-      %td Stock name
-      %td Target value
-      %td Alert status
-  %tbody
-    -@alerts.each do |a|
+.well
+  %h2= "List of your alerts (#{I18n.t 'alerts.count', count: @alerts.count})"
+  %table#alert_table.table.table-striped.table-bordered.datatable.no-footer
+    %thead
       %tr
-        %td= a.stock.name
-        %td
-          = a.display_target_value
-        %td= a.status
+        %td Stock name
+        %td Target value
+        %td Alert status
+    %tbody
+      -@alerts.each do |a|
+        %tr
+          %td= a.stock.name
+          %td
+            = a.display_target_value
+          %td= a.status

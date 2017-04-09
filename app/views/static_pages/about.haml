@@ -1,3 +1,14 @@
 %h1 About Stocks
-%p
-  blabla
+.well
+  %h3 Summary
+  = I18n.t 'about.summary'
+.well
+  %h3 Technological Stack
+  %ul
+    %li= I18n.t 'about.technology1'
+    %li= I18n.t 'about.technology2'
+    %li= I18n.t 'about.technology3'
+  %p=raw "StackShare : #{link_to 'Marhic Jerome Stack', 'https://stackshare.io/MarhicJeromeGIT/web-development-stack'}"
+.well
+  %h3 Future developments
+  = I18n.t 'about.future'
