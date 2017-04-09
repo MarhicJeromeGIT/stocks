@@ -82,3 +82,6 @@ gem 'omniauth'
 gem 'omniauth-github', github: 'intridea/omniauth-github'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'ejs' # fixes travis error
+gem "slack-notifier"
+gem 'omniauth-facebook'
+

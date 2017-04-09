@@ -18,8 +18,13 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
   end
 
-  private
-  
+  private 
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(_resource_or_scope)
+    root_path
+  end
+
   def not_found_or_not_authorized
     respond_to do |format|
       format.json { render json: { "erreur": "non!" } }
