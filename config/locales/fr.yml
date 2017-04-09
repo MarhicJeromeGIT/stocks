@@ -21,5 +21,5 @@ fr:
     summary: "Stocks permet de suivre l'évolution du prix d'une action du CAC 40."
     technology1: "Rails 5 - Passenger - Apache"
     technology2: "Gemmes: Omniauth - Devise"
-    technology3: "API: Swagger"
+    technology3: "API: Swagger. Custom Token authentification."
     future: "A venir"
