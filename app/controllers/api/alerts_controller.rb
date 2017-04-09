@@ -1,28 +1,26 @@
 module Api
-  class AlertsController
+  class AlertsController< ActionController::Base
     include Swagger::Blocks
+  
+    before_action :authenticate_user!
+    
+    protect_from_forgery with: :null_session
+    skip_before_action :verify_authenticity_token
+    respond_to :json
 
     # The Alert API swagger documentation
     swagger_path '/alerts' do
       operation :get do
-        key :description, 'Returns the list of the user alerts'
-        key :operationId, 'findPetById'
+        key :description, 'Returns the current user alerts'
+        key :operationId, 'alerts'
         key :tags, [
           'alert'
         ]
         parameter do
+          key :name, :token
           key :in, :header
-          key :name, 'access-token'
-          key :type, :string
-        end
-        parameter do
-          key :in, :header
-          key :name, :uid
-          key :type, :integer
-        end
-        parameter do
-          key :in, :header
-          key :name, :client
+          key :description, 'Token'
+          key :required, true
           key :type, :string
         end
         response 200 do
@@ -39,6 +37,15 @@ module Api
           schema do
             key :'$ref', :ErrorModel
           end
+        end
+      end
+    end
+  
+  
+    def alerts
+      respond_to do |format|
+        format.json do
+          render json: current_user.alerts
         end
       end
     end

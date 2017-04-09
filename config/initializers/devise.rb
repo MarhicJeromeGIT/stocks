@@ -254,8 +254,18 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   config.warden do |manager|
-    # manager.intercept_401 = false
-    Warden::Strategies.add(:warden_token_auth, Devise::Strategies::WardenTokenAuth)
+  #  # manager.intercept_401 = false
+  #  Warden::Strategies.add(:warden_token_auth, Devise::Strategies::WardenTokenAuth)
+     Warden::Strategies.add(:warden_token_auth) do
+      def valid?
+        request.headers[:token]
+      end
+    
+      def authenticate!
+        u = User.find_for_database_authentication(warden_auth_token:request.headers[:token])
+        u.nil? ? fail!("Could not log in") : success!(u)
+      end
+     end
     manager.default_strategies(scope: :user).unshift :warden_token_auth
   end
 
