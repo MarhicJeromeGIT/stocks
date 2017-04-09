@@ -15,10 +15,18 @@ module Api
           'user'
         ]
         parameter do
-          key :name, :body
+          key :name, :email
           key :in, :body
           key :description, 'email of the user'
           schema do
+          end
+        end
+        parameter do
+          key :name, :password
+          key :in, :body
+          key :description, 'password of the user'
+          schema do
+            key :format, :string
           end
         end
         response 200 do

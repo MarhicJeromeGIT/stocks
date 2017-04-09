@@ -1,31 +1,22 @@
 module Api
-  class UsersController < ActionController::Base
+  class StocksController < ActionController::Base
     include Swagger::Blocks
-  
-    before_action :authenticate_user!
     
     protect_from_forgery with: :null_session
     skip_before_action :verify_authenticity_token
     respond_to :json
 
-    swagger_path '/users/me' do
+    swagger_path '/stocks' do
       operation :get do
-        key :description, 'Returns the logged-in user data'
-        key :operationId, 'get_current_user'
+        key :description, 'Returns the list of the stocks'
+        key :operationId, 'stocks'
         key :tags, [
-          'user'
+          'stock'
         ]
-        parameter do
-          key :name, :token
-          key :in, :header
-          key :description, 'Token'
-          key :required, true
-          key :type, :string
-        end
         response 200 do
-          key :description, 'user response'
+          key :description, 'stock response'
           schema do
-            key :'$ref', :User
+            key :'$ref', :Stock
           end
         end
         response :default do
@@ -37,10 +28,10 @@ module Api
       end
     end
   
-    def me
+    def index
       respond_to do |format|
         format.json do
-          render json: current_user
+          render json: Stock.all
         end 
       end
     end

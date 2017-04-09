@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :users
   namespace :api do
     post 'sign_in_token', to: 'api_application#sign_in'
+    get 'users/me', to: 'users#me'
+    get 'alerts', to: 'alerts#alerts'
+    get 'stocks', to: 'stocks#index'
   end
 
   root to: 'static_pages#welcome'
