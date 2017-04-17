@@ -29,11 +29,7 @@ module Api
     end
   
     def index
-      respond_to do |format|
-        format.json do
-          render json: Stock.all
-        end 
-      end
+      render json: Stock.all
     end
   end
 end

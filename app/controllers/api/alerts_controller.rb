@@ -43,11 +43,7 @@ module Api
   
   
     def alerts
-      respond_to do |format|
-        format.json do
-          render json: current_user.alerts
-        end
-      end
+      render json: current_user.alerts
     end
   end
 end

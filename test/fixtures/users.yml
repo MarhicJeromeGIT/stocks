@@ -5,4 +5,5 @@ bob:
 
 alice:
   email: alice@gmail.com
-
+  provider: rails
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'goodpassword') %>
