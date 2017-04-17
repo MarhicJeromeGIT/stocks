@@ -1,3 +1,4 @@
+# TODO https://blog.rebased.pl/2016/11/07/api-error-handling.html
 module Api
   class ApiApplicationController < ActionController::Base
     include Swagger::Blocks
@@ -6,6 +7,12 @@ module Api
     skip_before_action :verify_authenticity_token
     respond_to :json
 
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+    
+    def handle_record_not_found(exception)
+      render json: { error: exception.message }, status: :not_found
+    end
+  
     # The User API swagger documentation
     swagger_path '/sign_in_token' do
       operation :post do
@@ -16,18 +23,17 @@ module Api
         ]
         parameter do
           key :name, :email
-          key :in, :body
+          key :in, :formData
           key :description, 'email of the user'
-          schema do
-          end
+          key :default, 'alice@test.com'
+          key :type, 'string'
         end
         parameter do
           key :name, :password
-          key :in, :body
+          key :in, :formData
           key :description, 'password of the user'
-          schema do
-            key :format, :string
-          end
+          key :default, 'azerty'
+          key :type, 'string'
         end
         response 200 do
           key :description, 'user response'
@@ -45,7 +51,7 @@ module Api
     end
 
     def sign_in
-      user = User.find_by_email(params[:email])
+      user = User.find_by_email!(params[:email])
       if user && (user.valid_password? params[:password])
         # Return a token
         token = Devise.friendly_token(32)
@@ -53,7 +59,7 @@ module Api
         render json: { token: token}
       else
         # Error message
-        render json: { error: 'wrong password or id' }
+        render json: { error: 'wrong password' }, status: :unauthorized
       end
     end 
   end
