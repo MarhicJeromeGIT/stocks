@@ -38,11 +38,7 @@ module Api
     end
   
     def me
-      respond_to do |format|
-        format.json do
-          render json: current_user
-        end 
-      end
+      render json: current_user
     end
   end
 end
