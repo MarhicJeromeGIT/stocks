@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     post 'sign_in_token', to: 'api_application#sign_in'
     get 'users/me', to: 'users#me'
     get 'alerts', to: 'alerts#alerts'
-    get 'stocks', to: 'stocks#index'
+    resources :stocks, only: [:index] do
+      get 'search', on: :collection
+    end
   end
 
   root to: 'static_pages#welcome'
@@ -19,7 +21,11 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'apidocs', to: 'apidocs#index'
   
-  resources :stocks
+
+  resources :stocks do
+    get 'search', on: :collection
+    get 'elastic', on: :collection
+  end
   resources :alerts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

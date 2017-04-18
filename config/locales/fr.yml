@@ -4,6 +4,7 @@ fr:
     my_account: "Mon compte"
     about: "A propos"
     apidoc: 'API Documentation'
+    elastic: 'Elastic Search'
   static_pages:
     welcome:
       title: "Bienvenue sur Stocks!"

@@ -84,4 +84,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'ejs' # fixes travis error
 gem "slack-notifier"
 gem 'omniauth-facebook'
+# Elastic search gems
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 
