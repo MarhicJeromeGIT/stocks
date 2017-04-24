@@ -3,11 +3,8 @@ class Stock extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = $.extend( props,
-      {
-        value_now_diff: 0
-      }
-    );
+    this.update_tick = 3000; // pull the stock price every 3 seconds
+    this.state = props;
   }
 
   render() {
@@ -27,7 +24,7 @@ class Stock extends React.Component {
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
-      5000
+      this.update_tick
     );
   }
 
@@ -39,6 +36,5 @@ class Stock extends React.Component {
     this.setState({
       value_now: Math.random()*100.0
     });
-    //console.log(this.state.value_now);
   }
 }
