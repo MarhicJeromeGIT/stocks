@@ -3,7 +3,7 @@ class StocksController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
-  after_action :verify_authorized, except: :index
+  after_action :verify_authorized, except: [:index, :search, :elastic]
   after_action :verify_policy_scoped, only: :index
 
   # GET /stocks
@@ -47,6 +47,15 @@ class StocksController < ApplicationController
   # DELETE /stocks/1
   def destroy
     @stock.destroy
+  end
+
+  def elastic
+  end
+
+  def search
+    query = ActiveRecord::Base::sanitize params[:search]
+    response = Stock.search query
+    @stocks = response.records
   end
 
   private

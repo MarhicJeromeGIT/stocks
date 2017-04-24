@@ -24,3 +24,34 @@ body, html{
   border-left: black 1px solid;
   border-right: black 1px solid;
 }
+
+.blink-red{
+  animation-name: blink-red-frame;
+  animation-duration: 0.5s; 
+}
+
+.blink-green{
+  animation-name: blink-green-frame;
+  animation-duration: 0.5s; 
+}
+
+.blink-black{
+  animation-name: blink-black-frame;
+  animation-duration: 0.5s; 
+}
+
+/* Standard syntax */
+@keyframes blink-green-frame {
+    from {background-color: white;}
+    to {background-color: green;}
+}
+
+@keyframes blink-red-frame {
+    from {background-color: white;}
+    to {background-color: red;}
+}
+
+@keyframes blink-black-frame {
+    from {background-color: white;}
+    to {background-color: black;}
+}

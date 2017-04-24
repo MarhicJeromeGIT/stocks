@@ -1,0 +1,12 @@
+
+%p
+  Elastic search server status:
+  %b
+    = Stock.__elasticsearch__.client.cluster.health['status']
+
+= form_tag search_stocks_path, method: :get, remote: true do
+  = text_field_tag :search
+  = submit_tag 'Search'
+#results
+  %p.search_results
+  %ul.list
