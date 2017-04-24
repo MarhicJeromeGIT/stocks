@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Stock < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_one :stock_live_info, autosave: true, dependent: :destroy
   
   after_initialize do |stock|

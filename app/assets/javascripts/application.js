@@ -12,9 +12,14 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
 //= require facebook
 //= require alerts
+//= require utils
 //= require navbar
 //= require stocks
+//= require react
+//= require react_ujs
+//= require components

@@ -31,5 +31,13 @@ module Api
     def index
       render json: Stock.all
     end
+    
+    def search
+      query = ActiveRecord::Base::sanitize params[:search]
+      response = Stock.search query
+      @stocks = response.records
+      
+      render json: @stocks
+    end
   end
 end

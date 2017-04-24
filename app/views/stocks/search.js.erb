@@ -1,0 +1,7 @@
+console.log("rendering <%= @stocks.count %> results");
+$('#results ul.list').empty(); // Erase previous results.
+$('#results p.search_results').html("<%= pluralize(@stocks.count, 'result') %> found");
+<% @stocks.each do |stock| %>
+  <%  %>
+  $('#results ul.list').append("<%= escape_javascript render stock %>");
+<% end %>
