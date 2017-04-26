@@ -90,5 +90,6 @@ gem 'omniauth-facebook'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 # React - ES6
-gem "react-rails"
+#gem "react-rails"
+gem "react_on_rails", "~> 6"
 
